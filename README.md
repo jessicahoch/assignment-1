@@ -2,6 +2,8 @@
 
 # 1) Get the data files 
 
+Download the following data files from the internet using the curl command: http://eaton-lab.org/pdsb/test.fastq.gz and http://eaton-lab.org/pdsb/iris-data-dirty.csv. Use the less or zless commands to look at the files. Then use the head command to print the first 5 lines from each file as output.
+
 To download the two files, I used the `curl` command, as the instructions specified, followed by `-O` to direct the files to a given location (my working directory). The file named "test.fastq.gz" needed to be unzipped with `gunzip` in order to be read using the `head` tool. I specified the number of lines to be printed using `head -n 5` which allowed me to print the first 5 lines from each file. The linked resources were used to help with [curl](https://curl.haxx.se/docs/manpage.html) and [head](https://stackoverflow.com/questions/20275072/read-first-x-lines-of-csv-into-new-outfile). 
 
 ```
@@ -39,162 +41,6 @@ Use grep, uniq, sed. Check that all of the species names are spelled correctly i
 To check that all the species names were spelled correctly, I sorted iris-data-dirty.csv with 'sort' and looked at the unique values with 'uniq.' From here, after seeing the incorrect spellings, I used 
 
 ```
-5.1,3.5,1.4,0.2,Iris-setosa
-4.9,3.0,1.4,0.2,Iris-setosa
-4.7,3.2,1.3,0.2,Iris-setosa
-4.6,3.1,1.5,0.2,Iris-setosa
-5.0,3.6,1.4,0.2,Iris-setosa
-5.4,3.9,1.7,0.4,Iris-setosa
-4.6,3.4,1.4,0.3,Iris-setosa
-5.0,3.4,1.5,0.2,Iris-setosa
-4.4,2.9,1.4,0.2,Iris-setosa
-4.9,3.1,1.5,0.1,Iris-setosa
-5.4,3.7,1.5,0.2,Iris-setosa
-4.8,3.4,1.6,0.2,Iris-setosa
-4.8,3.0,1.4,0.1,Iris-setosa
-4.3,3.0,1.1,0.1,Iris-setosa
-5.8,4.0,1.2,0.2,Iris-setosa
-5.7,4.4,1.5,0.4,Iris-setosa
-5.4,3.9,1.3,0.4,Iris-setosa
-5.1,3.5,1.4,0.3,Iris-setosa
-5.7,3.8,1.7,0.3,Iris-setosa
-5.1,3.8,1.5,0.3,Iris-setosa
-5.4,3.4,1.7,0.2,Iris-setosa
-5.1,3.7,1.5,0.4,Iris-setosa
-4.6,3.6,1.0,0.2,Iris-setosa
-5.1,3.3,1.7,0.5,Iris-setosa
-4.8,3.4,1.9,0.2,Iris-setosa
-5.0,3.0,1.6,0.2,Iris-setosa
-5.0,3.4,1.6,0.4,Iris-setosa
-5.2,3.5,1.5,0.2,Iris-setosa
-5.2,3.4,1.4,0.2,Iris-setosa
-4.7,3.2,1.6,0.2,Iris-setosa
-4.8,3.1,1.6,0.2,Iris-setosa
-5.4,3.4,1.5,0.4,Iris-setosa
-5.2,4.1,1.5,0.1,Iris-setosa
-5.5,4.2,1.4,0.2,Iris-setosa
-4.9,3.1,1.5,0.1,Iris-setosa
-5.0,3.2,1.2,0.2,Iris-setosa
-5.5,3.5,1.3,0.2,Iris-setosa
-4.9,3.1,1.5,0.1,Iris-setosa
-4.4,3.0,1.3,0.2,Iris-setosa
-5.1,3.4,1.5,0.2,Iris-setosa
-5.0,3.5,1.3,0.3,Iris-setosa
-4.5,2.3,1.3,0.3,Iris-setosa
-4.4,3.2,1.3,0.2,Iris-setosa
-5.0,3.5,1.6,0.6,Iris-setosa
-5.1,3.8,1.9,0.4,Iris-setosa
-4.8,3.0,1.4,0.3,Iris-setosa
-5.1,3.8,1.6,0.2,Iris-setosa
-4.6,3.2,1.4,0.2,Iris-setosa
-5.3,3.7,1.5,0.2,Iris-setosa
-5.0,3.3,1.4,0.2,Iris-setosa
-7.0,3.2,4.7,1.4,Iris-versicolor
-6.4,3.2,4.5,1.5,Iris-versicolor
-6.9,3.1,4.9,1.5,Iris-versicolor
-5.5,2.3,4.0,1.3,Iris-versicolor
-6.5,2.8,4.6,1.5,Iris-versicolor
-5.7,2.8,4.5,1.3,Iris-versicolor
-6.3,3.3,4.7,1.6,Iris-versicolor
-4.9,2.4,3.3,1.0,Iris-versicolor
-6.6,2.9,4.6,1.3,Iris-versicolor
-5.2,2.7,3.9,1.4,Iris-versicolor
-5.0,2.0,3.5,1.0,Iris-versicolor
-5.9,3.0,4.2,1.5,Iris-versicolor
-6.0,2.2,4.0,1.0,Iris-versicolor
-6.1,2.9,4.7,1.4,Iris-versicolor
-5.6,2.9,3.6,1.3,Iris-versicolor
-6.7,3.1,4.4,1.4,Iris-versicolor
-5.6,3.0,4.5,1.5,Iris-versicolor
-5.8,2.7,4.1,1.0,Iris-versicolor
-6.2,2.2,4.5,1.5,Iris-versicolor
-5.6,2.5,3.9,1.1,Iris-versicolor
-5.9,3.2,4.8,1.8,Iris-versicolor
-6.1,2.8,4.0,1.3,Iris-versicolor
-6.1,2.8,4.7,1.2,Iris-versicolor
-6.4,2.9,4.3,1.3,Iris-versicolor
-6.6,3.0,4.4,1.4,Iris-versicolor
-6.8,2.8,4.8,1.4,Iris-versicolor
-6.7,3.0,5.0,1.7,Iris-versicolor
-6.0,2.9,4.5,1.5,Iris-versicolor
-5.7,2.6,3.5,1.0,Iris-versicolor
-5.5,2.4,3.8,1.1,Iris-versicolor
-5.5,2.4,3.7,1.0,Iris-versicolor
-5.8,2.7,3.9,1.2,Iris-versicolor
-6.0,2.7,5.1,1.6,Iris-versicolor
-5.4,3.0,4.5,1.5,Iris-versicolor
-6.0,3.4,4.5,1.6,Iris-versicolor
-6.7,3.1,4.7,1.5,Iris-versicolor
-6.3,2.3,4.4,1.3,Iris-versicolor
-5.5,2.5,4.0,1.3,Iris-versicolor
-5.5,2.6,4.4,1.2,Iris-versicolor
-6.1,3.0,4.6,1.4,Iris-versicolor
-5.8,2.6,4.0,1.2,Iris-versicolor
-5.0,2.3,3.3,1.0,Iris-versicolor
-5.6,2.7,4.2,1.3,Iris-versicolor
-5.7,3.0,4.2,1.2,Iris-versicolor
-5.7,2.9,4.2,1.3,Iris-versicolor
-6.2,2.9,4.3,1.3,Iris-versicolor
-5.1,2.5,3.0,1.1,Iris-versicolor
-5.7,2.8,4.1,1.3,Iris-versicolor
-6.3,3.3,6.0,2.5,Iris-virginica
-5.8,2.7,5.1,1.9,Iris-virginica
-7.1,3.0,5.9,2.1,Iris-virginica
-6.3,2.9,5.6,1.8,Iris-virginica
-6.5,3.0,5.8,2.2,Iris-virginica
-7.6,3.0,6.6,2.1,Iris-virginica
-4.9,2.5,4.5,1.7,Iris-virginica
-7.3,2.9,6.3,1.8,Iris-virginica
-6.7,2.5,5.8,1.8,Iris-virginica
-7.2,3.6,6.1,2.5,Iris-virginica
-6.5,3.2,5.1,2.0,Iris-virginica
-6.4,2.7,5.3,1.9,Iris-virginica
-6.8,3.0,5.5,2.1,Iris-virginica
-5.7,2.5,5.0,2.0,Iris-virginica
-5.8,2.8,5.1,2.4,Iris-virginica
-6.4,3.2,5.3,2.3,Iris-virginica
-6.5,3.0,5.5,1.8,Iris-virginica
-7.7,3.8,6.7,2.2,Iris-virginica
-7.7,2.6,6.9,2.3,Iris-virginica
-6.0,2.2,5.0,1.5,Iris-virginica
-6.9,3.2,5.7,2.3,Iris-virginica
-5.6,2.8,4.9,2.0,Iris-virginica
-7.7,2.8,6.7,2.0,Iris-virginica
-6.3,2.7,4.9,1.8,Iris-virginica
-6.7,3.3,5.7,2.1,Iris-virginica
-7.2,3.2,6.0,1.8,Iris-virginica
-6.2,2.8,4.8,1.8,Iris-virginica
-6.1,3.0,4.9,1.8,Iris-virginica
-6.4,2.8,5.6,2.1,Iris-virginica
-7.2,3.0,5.8,1.6,Iris-virginica
-7.4,2.8,6.1,1.9,Iris-virginica
-7.9,3.8,6.4,2.0,Iris-virginica
-6.4,2.8,5.6,2.2,Iris-virginica
-6.3,2.8,5.1,1.5,Iris-virginica
-6.1,2.6,5.6,1.4,Iris-virginica
-7.7,3.0,6.1,2.3,Iris-virginica
-6.3,3.4,5.6,2.4,Iris-virginica
-6.4,3.1,5.5,1.8,Iris-virginica
-6.0,3.0,4.8,1.8,Iris-virginica
-6.9,3.1,5.4,2.1,Iris-virginica
-6.7,3.1,5.6,2.4,Iris-virginica
-6.9,3.1,5.1,2.3,Iris-virginica
-5.8,2.7,5.1,1.9,Iris-virginica
-6.8,3.2,5.9,2.3,Iris-virginica
-6.7,3.3,5.7,2.5,Iris-virginica
-6.7,3.0,5.2,2.3,Iris-virginica
-6.3,2.5,5.0,1.9,Iris-virginica
-6.5,3.0,5.2,2.0,Iris-virginica
-6.2,3.4,5.4,2.3,Iris-virginica
-5.9,3.0,5.1,1.8,Iris-virginica
-```
-
-
-
-
-
-
-```
 dyn-160-39-253-132:PDSB jessicahoch$ sort -t, -k5 iris-data-dirty.csv > sorted.csv
 dyn-160-39-253-132:PDSB jessicahoch$ sort -u -t, -k5 sorted.csv > uniq.csv
 dyn-160-39-253-132:PDSB jessicahoch$ cat uniq.csv
@@ -203,8 +49,6 @@ dyn-160-39-253-132:PDSB jessicahoch$ sed 's/Iris-versicolour/Iris-versicolor/g' 
 dyn-160-39-253-132:PDSB jessicahoch$ cat iris-data-2.csv 
 dyn-160-39-253-132:PDSB jessicahoch$ sed '/NA/d' iris-data-2.csv > iris-data-clean.csv
 ```
-
-
 
 # 3) Summarize sequence data file 
 
@@ -262,4 +106,26 @@ To find how many lines of the data file test.fastq start with "TCGAG," I used `g
     ```
    Jessicas-Air:PDSB jessicahoch$ touch summ.txt
    Jessicas-Air:PDSB jessicahoch$ grep ^TGCAG test.fastq | grep 'GAG$' > summ.txt
+   Jessicas-Air:PDSB jessicahoch$ cat -n summ.txt 
    ```
+   
+   # 4) Summarize sequence data file
+   
+Write a for-loop to separate the reads from the file test.fastq.gz based on the taxon name in the label, and write the reads to separately named files in the new directory called sorted_reads/. The answer to this question will require more than a single line. See the lecture materials about using variables in for-loops. This will also be tricky because each read in the data file spans four lines (this is a standard genetic sequence file format), so for each read that you correctly identify you must grab the line with the sequence data below it, as well as the repeat label after that, and the quality information line after that. For a hint, see additional options for the grep command that can be used to select multiple lines.
+
+To get a list of taxa included, I used `grep` and `cut` to find the taxa names (selecting out all the other information). I used `sort` and `uniq` to generate the list of taxa. Then, I wrote a `for-loop` essentially saying that for each taxon, select the line with the name of each taxon plus one after it and write it to a new file for each taxon. 
+
+
+```
+dyn-160-39-253-132:~ jessicahoch$ cat test.fastq | grep '^@[0-9]' | cut -d '.' -f 1 |cut -d '_' -f 2 | sort| uniq
+cyathophylla
+cyathophylloides
+przewalskii
+rex
+superba
+thamno
+dyn-160-39-253-132:~ jessicahoch$ for item in superba thamno cyathophylla przewalskii rex cyathophylloides; do grep -A 1 $item test.fastq > $item.txt; done
+```
+
+
+   

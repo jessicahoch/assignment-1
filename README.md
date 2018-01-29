@@ -39,7 +39,7 @@ Jessicas-Air:PDSB jessicahoch$ head -n 5 test.fastq
 
 Find how many lines in the data file test.fastq.gz start with "TGCAG" and end with "GAG" 
 
-To find how many lines of the data file test.fastq start with "TCGAG," I used `grep` and "^" to indicate the beginning of the line, followed by the characters. To find how many lines end with "GAG," I used `grep` and "$" after the end of the line characters. I returned the output to a new file (summ.txt) and used `cat` followed by `-n` to find the number of rows. 
+To find how many lines of the data file test.fastq start with "TCGAG," I used `grep` and "^" to indicate the beginning of the line, followed by the characters. To find how many lines end with "GAG," I used `grep` and "$" after the end of the line characters. I returned the output to a new file (summ.txt) and used `cat` followed by `-n` to find the number of rows. The linekd resources were used to figure out how to use `grep` with the [beginning](https://askubuntu.com/questions/639157/grep-beginning-of-line) and [end](http://uniforumchicago.org/slides/regexp/tsld016.htm) of a line. 
 
 ```
      1	TGCAGCAAGTAAAGGGCCGAGGGACCGGCCCGAGAGACGACGTCCTGGCGGAGTGCTGTTTGGTGATGGAGGAG
@@ -87,6 +87,8 @@ To find how many lines of the data file test.fastq start with "TCGAG," I used `g
     43	TGCAGCAGACCGATTTCCTCCTTTACTCTCCTCAAGTGCCTTTTGTCTGTGTCTTTGATAGCTTTCGCACTGAG
     44	TGCAGCGGCTGGTCTGGAACGGAGCCGTACCGTTTGAAATTCGGACGGGGAAAGCCATGCCCGACGGGTTCGAG
     ```
+    
+    
     
     ```
    Jessicas-Air:PDSB jessicahoch$ touch summ.txt

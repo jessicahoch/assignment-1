@@ -101,9 +101,10 @@ To find how many lines of the data file test.fastq start with "TCGAG," I used `g
     42	TGCAGACTGTCGAGGGCAACGCTAATGTCCGAGTAGACCTCGTCGATAGACTTGCTCGAGTTGATCTGTTGGAG
     43	TGCAGCAGACCGATTTCCTCCTTTACTCTCCTCAAGTGCCTTTTGTCTGTGTCTTTGATAGCTTTCGCACTGAG
     44	TGCAGCGGCTGGTCTGGAACGGAGCCGTACCGTTTGAAATTCGGACGGGGAAAGCCATGCCCGACGGGTTCGAG
-    ```
-    
-    ```
+```
+
+
+```
    Jessicas-Air:PDSB jessicahoch$ touch summ.txt
    Jessicas-Air:PDSB jessicahoch$ grep ^TGCAG test.fastq | grep 'GAG$' > summ.txt
    Jessicas-Air:PDSB jessicahoch$ cat -n summ.txt 

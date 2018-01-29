@@ -38,7 +38,7 @@ Jessicas-Air:PDSB jessicahoch$ head -n 5 test.fastq
 
 Use grep, uniq, sed. Check that all of the species names are spelled correctly in the file iris-data-dirty.csv. Also check for missing values stored as NA. Create a new file where mispelled names are replaced with the correct values, and lines with NA are excluded, and save it as iris-data-clean.csv. Use cut, sort and uniq to list the number of data values there are for each species in the new cleaned data file.
 
-To check that all the species names were spelled correctly, I sorted iris-data-dirty.csv with 'sort' and looked at the unique values with 'uniq.' From here, after seeing the incorrect spellings, I used 
+To check that all the species names were spelled correctly, I sorted iris-data-dirty.csv with `sort` and looked at the unique values with `uniq`. From here, after seeing the incorrect spellings, I used `sed` to replace the misspelled species with the correct ones and delete lines with "NA" fields. 
 
 ```
 dyn-160-39-253-132:PDSB jessicahoch$ sort -t, -k5 iris-data-dirty.csv > sorted.csv

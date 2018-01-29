@@ -38,7 +38,7 @@ Jessicas-Air:PDSB jessicahoch$ head -n 5 test.fastq
 
 Use grep, uniq, sed. Check that all of the species names are spelled correctly in the file iris-data-dirty.csv. Also check for missing values stored as NA. Create a new file where mispelled names are replaced with the correct values, and lines with NA are excluded, and save it as iris-data-clean.csv. Use cut, sort and uniq to list the number of data values there are for each species in the new cleaned data file.
 
-To check that all the species names were spelled correctly, I sorted iris-data-dirty.csv with `sort` and looked at the unique values with `uniq`. From here, after seeing the incorrect spellings, I used `sed` to replace the misspelled species with the correct ones and delete lines with "NA" fields. 
+To check that all the species names were spelled correctly, I sorted iris-data-dirty.csv with `sort` and looked at the unique values with `uniq`. From here, after seeing the incorrect spellings, I used `sed` to replace the misspelled species with the correct ones and delete lines with "NA" fields. To count the number of values, I used `cut` and removed all of the data before character 16 in each line. 
 
 ```
 dyn-160-39-253-132:PDSB jessicahoch$ sort -t, -k5 iris-data-dirty.csv > sorted.csv
@@ -48,6 +48,10 @@ dyn-160-39-253-132:PDSB jessicahoch$ sed 's/Iris-setsa/Iris-setosa/g' iris-data-
 dyn-160-39-253-132:PDSB jessicahoch$ sed 's/Iris-versicolour/Iris-versicolor/g' iris-data-1.csv > iris-data-2.csv 
 dyn-160-39-253-132:PDSB jessicahoch$ cat iris-data-2.csv 
 dyn-160-39-253-132:PDSB jessicahoch$ sed '/NA/d' iris-data-2.csv > iris-data-clean.csv
+dyn-160-39-253-132:PDSB jessicahoch$ cat iris-data-clean.csv | cut -b 17- | uniq -c
+  50 Iris-setosa
+  48 Iris-versicolor
+  50 Iris-virginica
 ```
 
 # 3) Summarize sequence data file 
